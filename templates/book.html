@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <title>Kofuka</title>
+</head>
+<body>
+<center><h1>Агата Кристи</h1></center>
+<ul>
+     {% for i in lang_key %}
+    <li>
+        <h2>{{i.title}}</h2>
+        <p><em>{{i.description}}</em></p>
+        <img src="{{i.image.url}}" alt="book" width="200" height="300">
+        <p>Cost: {{i.cost}}</p>
+        <p><strong>{{i.create_date}}</strong></p>
+        <hr>
+
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>

@@ -18,7 +18,8 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=30)),
                 ('description', models.TextField()),
                 ('image', models.ImageField(upload_to='')),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
+                ('cost', models.IntegerField()),
+                ('created_date', models.DateTimeField(auto_now_add=True)),
             ],
         ),
     ]
