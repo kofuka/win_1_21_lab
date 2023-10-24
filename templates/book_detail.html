@@ -1,20 +1,72 @@
+{% include 'header.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>About</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        th, td {
+            border: 2px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1>О книге</h1>
+        <h2>{{lang_key.title}}</h2>
+        <p>{{lang_key.description}}</p>
+        <img src="{{lang_key.image.url}}" alt="lang_prog" width="200" height="300">
+        <p>{{lang_key.actuality}}</p>
+        <p>{{lang_key.cost}}</p>
+        <p>{{lang_key.create_date}}</p>
+        <iframe src="{{lang_key.video}}" frameborder="0"></iframe>
+    </div>
 
-    <h1>О книге</h1>
-    <h2>{{lang_key.title}}</h2>
-    <p>{{lang_key.description}}</p>
-    <img src="{{lang_key.image.url}}" alt="lang_prog" width="200" height="300">
-    <p>{{lang_key.actuality}}</p>
-    <p>{{lang_key.cost}}</p>
-    <p>{{lang_key.create_date}}</p>
-    <iframe src="{{lang_key.video}}" frameborder="0"></iframe>
+    <table>
+        <tr>
+            <th>Дата создания отзыва</th>
+            <th>Комментарий</th>
+            <th>Оценка</th>
+        </tr>
 
-
+        {% for i in lang_key.review_object.all %}
+        <tr>
+            <td>{{i.created_at}}</td>
+            <td>{{i.text_review}}</td>
+            <td>{{i.rate_stars}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% include 'footer.html' %}
 </body>
 </html>
