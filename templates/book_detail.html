@@ -42,14 +42,17 @@
 </head>
 <body>
     <div class="container">
+        <br>
+        <button><a href="/book_list/{{object.id}}/update/">Изменить</a></button>
+        <button><a href="/book_list/{{object.id}}/delete/">Удалить</a></button>
         <h1>О книге</h1>
-        <h2>{{lang_key.title}}</h2>
-        <p>{{lang_key.description}}</p>
-        <img src="{{lang_key.image.url}}" alt="lang_prog" width="200" height="300">
-        <p>{{lang_key.actuality}}</p>
-        <p>{{lang_key.cost}}</p>
-        <p>{{lang_key.create_date}}</p>
-        <iframe src="{{lang_key.video}}" frameborder="0"></iframe>
+        <h2>{{object.title}}</h2>
+        <p>{{object.description}}</p>
+        <img src="{{object.image.url}}" alt="lang_prog" width="200" height="300">
+        <p>{{object.actuality}}</p>
+        <p>{{object.cost}}</p>
+        <p>{{object.create_date}}</p>
+        <iframe src="{{object.video}}" frameborder="0"></iframe>
     </div>
 
     <table>
@@ -59,7 +62,7 @@
             <th>Оценка</th>
         </tr>
 
-        {% for i in lang_key.review_object.all %}
+        {% for i in object.review_object.all %}
         <tr>
             <td>{{i.created_at}}</td>
             <td>{{i.text_review}}</td>
